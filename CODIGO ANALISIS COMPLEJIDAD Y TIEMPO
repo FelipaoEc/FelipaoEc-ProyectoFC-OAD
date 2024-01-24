@@ -1,0 +1,44 @@
+--------------------PARA MEDIR análisis de sus complejidad Y LOS TIEMPOS-------------
+public class trianguloalgo {
+    private int M;
+
+    public trianguloalgo (int M) {
+        this.M = M;
+    }
+
+    public long trianguloA() {
+        long startTime = System.currentTimeMillis();
+        for (int i = 0; i < this.M; i++) {
+            for (int j = 0; j <= i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+        long endTime = System.currentTimeMillis();
+        return endTime - startTime;
+    }
+
+    public long trianguloB() {
+        long startTime = System.currentTimeMillis();
+        for (int i = this.M; i > 0; i--) {
+            for (int j = 0; j < i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+        long endTime = System.currentTimeMillis();
+        return endTime - startTime;
+    }
+
+    public static void main(String[] args) {
+        trianguloalgo t = new trianguloalgo(5);
+
+        System.out.println("Análisis de complejidad del método trianguloA:");
+        long tiempoA = t.trianguloA();
+        System.out.println("Tiempo de ejecución: " + tiempoA + " milisegundos");
+
+        System.out.println("\nAnálisis de complejidad del método trianguloB:");
+        long tiempoB = t.trianguloB();
+        System.out.println("Tiempo de ejecución: " + tiempoB + " milisegundos");
+    }
+}
